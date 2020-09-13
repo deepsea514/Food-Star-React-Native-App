@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <item android:drawable="@color/colorPrimary" />
+    <item android:width="300dp"
+        android:height="300dp" android:drawable="@drawable/logo"
+        android:gravity="center" />
+</layer-list>

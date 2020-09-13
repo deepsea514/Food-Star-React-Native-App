@@ -1,0 +1,155 @@
+import * as React from 'react';
+import {Switch, View, ScrollView, Linking} from 'react-native';
+import {Text, Icon, Divider, Section} from '@src/components/elements';
+import ListRowItem from '@src/components/elements/List/ListRowItem';
+import styles from './styles';
+import ChangeAppearanceModal from './ChangeAppearanceModal';
+import ChangeLanguageModal from './ChangeLanguageModal';
+import themeContext from '@src/context/theme-context';
+
+type SettingsProps = {};
+
+const Settings: React.FC<SettingsProps> = () => {
+  const {theme, useSystemTheme} = React.useContext(themeContext);
+  const [isEnableNotification, setIsEnableNotifications] = React.useState(true);
+  const [
+    isAppearanceModalVisible,
+    setIsAppearanceModalVisible,
+  ] = React.useState(false);
+  const [isLanguageModalVisible, setIsLanguageModalVisible] = React.useState(
+    false,
+  );
+
+  const _hideAppearanceModal = () => {
+    setIsAppearanceModalVisible(false);
+  };
+
+  const _hideLanguageModal = () => {
+    setIsLanguageModalVisible(false);
+  };
+
+  const _renderAppSettingsSection = () => {
+    return (
+      <Section title="App Settings">
+        <ListRowItem
+          title="Appearance"
+          onPress={() => setIsAppearanceModalVisible(true)}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Text style={styles.settingOptionText}>
+                {useSystemTheme ? 'System' : theme.toString()}
+              </Text>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Push Notification"
+          rightIcon={
+            <Switch
+              value={isEnableNotification}
+              onValueChange={(value) => setIsEnableNotifications(value)}
+            />
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Language"
+          onPress={() => setIsLanguageModalVisible(true)}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Text style={styles.settingOptionText}>English</Text>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+      </Section>
+    );
+  };
+
+  const _renderMoreInformationSection = () => {
+    return (
+      <Section title="More Information">
+        <ListRowItem
+          title="About Us"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Rate The App"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Follow Us On Facebook"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Follow Us On Instagram"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Visit Our Website"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+        <Divider />
+        <ListRowItem
+          title="Contact Us"
+          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          rightIcon={
+            <View style={styles.settingOptionContainer}>
+              <Icon name="chevron-right" />
+            </View>
+          }
+        />
+      </Section>
+    );
+  };
+
+  return (
+    <View style={styles.root}>
+      <ScrollView>
+        {_renderAppSettingsSection()}
+        {_renderMoreInformationSection()}
+      </ScrollView>
+      <ChangeAppearanceModal
+        isVisible={isAppearanceModalVisible}
+        hideModal={_hideAppearanceModal}
+      />
+      <ChangeLanguageModal
+        isVisible={isLanguageModalVisible}
+        hideModal={_hideLanguageModal}
+      />
+    </View>
+  );
+};
+
+export default Settings;
