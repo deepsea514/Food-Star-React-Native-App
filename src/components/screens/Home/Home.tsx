@@ -8,6 +8,7 @@ import MerchantCampaigns from './MerchantCampaigns';
 import PopularCategories from './PopularCategories';
 import HotDeals from './HotDeals';
 import RemarkablePlaces from './RemarkablePlaces';
+import AppReviewPrompt from '@src/components/common/AppReviewPrompt';
 
 type HomeProps = {};
 
@@ -43,6 +44,7 @@ const Home: React.FC<HomeProps> = () => {
           <LoadingIndicator size="large" hasMargin />
         )}
       </ScrollView>
+      <AppReviewPrompt />
     </SafeAreaView>
   );
 };
