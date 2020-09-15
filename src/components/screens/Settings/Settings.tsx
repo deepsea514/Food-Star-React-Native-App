@@ -6,6 +6,7 @@ import styles from './styles';
 import ChangeAppearanceModal from './ChangeAppearanceModal';
 import ChangeLanguageModal from './ChangeLanguageModal';
 import themeContext from '@src/context/theme-context';
+import {getStoreURL} from '@src/utils/store-info';
 
 type SettingsProps = {};
 
@@ -73,7 +74,7 @@ const Settings: React.FC<SettingsProps> = () => {
       <Section title="More Information">
         <ListRowItem
           title="About Us"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />
@@ -83,7 +84,7 @@ const Settings: React.FC<SettingsProps> = () => {
         <Divider />
         <ListRowItem
           title="Rate The App"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />
@@ -93,7 +94,7 @@ const Settings: React.FC<SettingsProps> = () => {
         <Divider />
         <ListRowItem
           title="Follow Us On Facebook"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />
@@ -103,7 +104,7 @@ const Settings: React.FC<SettingsProps> = () => {
         <Divider />
         <ListRowItem
           title="Follow Us On Instagram"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />
@@ -113,7 +114,7 @@ const Settings: React.FC<SettingsProps> = () => {
         <Divider />
         <ListRowItem
           title="Visit Our Website"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />
@@ -123,7 +124,7 @@ const Settings: React.FC<SettingsProps> = () => {
         <Divider />
         <ListRowItem
           title="Contact Us"
-          onPress={() => Linking.openURL('https://jcstudioz.com/')}
+          onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Icon name="chevron-right" />

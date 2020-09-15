@@ -43,6 +43,11 @@ const RootNavigation = () => {
     <NavigationContainer theme={theme === 'light' ? lightTheme : darkTheme}>
       <View style={{flex, backgroundColor: rootContainerBackgroundColor}}>
         <StatusBar
+          backgroundColor={
+            theme === 'light'
+              ? lightTheme.colors.background
+              : darkTheme.colors.background
+          }
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
         />
         <RootStack.Navigator mode="modal" screenOptions={screenOptions}>
