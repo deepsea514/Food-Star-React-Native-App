@@ -1,20 +1,21 @@
 import * as React from 'react';
+import {View} from 'react-native';
 import Modal, {ModalProps} from 'react-native-modal';
 import Container from '../Container';
 import Text from '../Text';
 import styles from './styles';
 import Divider from '../Divider';
-import {View} from 'react-native';
-import Button from '../Button';
 
 type DialogProps = {
   title?: string;
   isTitleCentered?: boolean;
+  footer?: React.ReactNode;
 } & Partial<ModalProps>;
 
 const Dialog: React.FC<DialogProps> = ({
   title,
   isTitleCentered,
+  footer,
   children,
   ...rest
 }) => {
@@ -40,19 +41,7 @@ const Dialog: React.FC<DialogProps> = ({
           </>
         )}
         <View style={styles.contentContainer}>{children}</View>
-        <View>
-          <Button isTransparent>
-            <Text isPrimary>Rate Food Star</Text>
-          </Button>
-          <Divider />
-          <Button isTransparent>
-            <Text>Remind me later</Text>
-          </Button>
-          <Divider />
-          <Button isTransparent>
-            <Text>No, thanks</Text>
-          </Button>
-        </View>
+        {footer && footer}
       </Container>
     </Modal>
   );
