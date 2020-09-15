@@ -12,6 +12,8 @@ public class MainActivity extends ReactActivity {
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
     setTheme(R.style.AppTheme);
+    I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+    sharedI18nUtilInstance.allowRTL(context, true);
     super.onCreate(savedInstanceState, persistentState);
   }
 

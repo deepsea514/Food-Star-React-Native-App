@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, I18nManager} from 'react-native';
 
 export default StyleSheet.create({
   merchantCampaignContainer: {
@@ -10,6 +10,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: 10,
+    backgroundColor: 'red',
   },
   campaignImage: {
     width: 70,
@@ -23,10 +24,12 @@ export default StyleSheet.create({
   campaignTitle: {
     fontWeight: 'bold',
     color: 'white',
+    textAlign: I18nManager.isRTL ? 'left' : 'auto',
   },
   campaignSubTitle: {
     color: 'white',
     fontSize: 12,
     marginTop: 2,
+    textAlign: I18nManager.isRTL ? 'left' : 'auto',
   },
 });

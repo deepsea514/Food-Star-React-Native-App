@@ -46,6 +46,7 @@ static void InitializeFlipper(UIApplication *application) {
   [self.window makeKeyAndVisible];
 
   [GMSServices provideAPIKey:@"AIzaSyD7_x-IaDtLZle9C37GEnizuCkEOSnkkBg"]; // add this line using the api key obtained from Google Console
+  [[RCTI18nUtil sharedInstance] allowRTL:YES]; // Allow RTL layout for your app
   return YES;
 }
 

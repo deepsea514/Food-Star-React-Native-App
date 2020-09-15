@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {Switch, View, ScrollView, Linking} from 'react-native';
+import {
+  Switch,
+  View,
+  ScrollView,
+  Linking,
+  I18nManager,
+  Alert,
+} from 'react-native';
 import {Text, Icon, Divider, Section} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import styles from './styles';
@@ -12,7 +19,7 @@ type SettingsProps = {};
 
 const Settings: React.FC<SettingsProps> = () => {
   const {theme, useSystemTheme} = React.useContext(themeContext);
-  const [isEnableNotification, setIsEnableNotifications] = React.useState(true);
+  const [enableRTL, setEnableRTL] = React.useState(false);
   const [
     isAppearanceModalVisible,
     setIsAppearanceModalVisible,
@@ -20,6 +27,10 @@ const Settings: React.FC<SettingsProps> = () => {
   const [isLanguageModalVisible, setIsLanguageModalVisible] = React.useState(
     false,
   );
+
+  React.useEffect(() => {
+    setEnableRTL(I18nManager.isRTL);
+  }, []);
 
   const _hideAppearanceModal = () => {
     setIsAppearanceModalVisible(false);
@@ -46,11 +57,18 @@ const Settings: React.FC<SettingsProps> = () => {
         />
         <Divider />
         <ListRowItem
-          title="Push Notification"
+          title="RTL Layout"
           rightIcon={
             <Switch
-              value={isEnableNotification}
-              onValueChange={(value) => setIsEnableNotifications(value)}
+              value={enableRTL}
+              onValueChange={() => {
+                setEnableRTL(!enableRTL);
+                I18nManager.forceRTL(!enableRTL);
+                Alert.alert(
+                  'Reload this page',
+                  'Please reload this page to change the UI direction! ',
+                );
+              }}
             />
           }
         />
