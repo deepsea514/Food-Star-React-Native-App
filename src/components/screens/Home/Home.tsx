@@ -44,7 +44,7 @@ const Home: React.FC<HomeProps> = () => {
           <LoadingIndicator size="large" hasMargin />
         )}
       </ScrollView>
-      <AppReviewModal daysBeforeReminding={0} />
+      <AppReviewModal daysBeforeReminding={1} />
     </SafeAreaView>
   );
 };
