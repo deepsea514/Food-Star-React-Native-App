@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Linking, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import dayjs from 'dayjs';
-import {getApplicationName} from 'react-native-device-info';
 import {Button, Dialog, Divider, Text} from '@src/components/elements';
 import {getStoreName, getStoreURL} from '@src/utils/store-info';
 
@@ -17,7 +16,7 @@ type AppReviewModalProps = {
 const AppReviewModal: React.FC<AppReviewModalProps> = ({
   storeURL = getStoreURL(),
   daysBeforeReminding = 1,
-  rateButtonText = `Rate ${getApplicationName()}`,
+  rateButtonText = 'Rate Food Star',
   remindLaterButtonText = 'Remind me later',
   cancelButtonText = 'No, thanks',
 }) => {
@@ -91,12 +90,12 @@ const AppReviewModal: React.FC<AppReviewModalProps> = ({
 
   return (
     <Dialog
-      title={`Enjoying ${getApplicationName()} app?`}
+      title={'Enjoying Food Star app?'}
       isTitleCentered
       isVisible={isShowAppReview}
       footer={_renderFooter()}>
       <Text isCenter>
-        If you enjoy {getApplicationName()}, please take a moment to rate it in{' '}
+        If you enjoy Food Star, please take a moment to rate it in{' '}
         {getStoreName()}. Your support is deeply appreciated!
       </Text>
     </Dialog>
