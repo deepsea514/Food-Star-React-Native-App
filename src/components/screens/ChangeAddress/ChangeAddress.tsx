@@ -6,15 +6,17 @@ import ListRowItem, {
   ListRowItemProps,
 } from '@src/components/elements/List/ListRowItem';
 import {useNavigation} from '@react-navigation/native';
+import {I18nManager} from 'react-native';
 
 type ChangeAddressProps = {};
+const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
 
 const savedPlaceListItem: ListRowItemProps = {
   id: '1',
   title: 'Saved Places',
   subTitle: 'Select a delivery address easily',
   leftIcon: <Icon name="bookmark" size={16} />,
-  rightIcon: <Icon name="chevron-right" size={16} />,
+  rightIcon: <Icon name={chevronIconName} size={16} />,
 };
 
 const useCurrentLocationListItem: ListRowItemProps = {

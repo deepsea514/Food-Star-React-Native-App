@@ -7,7 +7,14 @@ import {
   Button,
   Text,
 } from '@src/components/elements';
-import {ScrollView, Image, View, Alert, AlertButton} from 'react-native';
+import {
+  ScrollView,
+  Image,
+  View,
+  Alert,
+  AlertButton,
+  I18nManager,
+} from 'react-native';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import {profile} from '@src/data/mock-profile';
 import styles from './styles';
@@ -19,6 +26,7 @@ type AccountProps = {};
 const Account: React.FC<AccountProps> = () => {
   const navigation = useNavigation();
   const {signOut} = React.useContext(AuthContext);
+  const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
 
   const alertButtons: AlertButton[] = [
     {
@@ -44,7 +52,7 @@ const Account: React.FC<AccountProps> = () => {
           leftIcon={
             <Image source={profile.avatar} style={styles.profileAvatar} />
           }
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
       </Container>
       <Container style={styles.accountMenuItemContainer}>
@@ -53,31 +61,31 @@ const Account: React.FC<AccountProps> = () => {
         <ListRowItem
           title="Order History"
           onPress={() => navigation.navigate('OrderHistoryScreen')}
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="Delivery Address"
           onPress={() => navigation.navigate('SavedAddressesScreen')}
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="Settings"
           onPress={() => navigation.navigate('SettingsScreen')}
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
 
         <ListRowItem
           title="Support Center"
           onPress={() => navigation.navigate('SupportCenterScreen')}
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="Share Feedback"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
       </Container>
       <View style={styles.buttonContainer}>

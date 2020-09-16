@@ -40,6 +40,8 @@ const Settings: React.FC<SettingsProps> = () => {
     setIsLanguageModalVisible(false);
   };
 
+  const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
+
   const _renderAppSettingsSection = () => {
     return (
       <Section title="App Settings">
@@ -51,7 +53,7 @@ const Settings: React.FC<SettingsProps> = () => {
               <Text style={styles.settingOptionText}>
                 {useSystemTheme ? 'System' : theme.toString()}
               </Text>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -79,7 +81,7 @@ const Settings: React.FC<SettingsProps> = () => {
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Text style={styles.settingOptionText}>English</Text>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -95,7 +97,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -105,7 +107,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -115,7 +117,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -125,7 +127,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -135,7 +137,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -145,7 +147,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Dimensions} from 'react-native';
+import {View, Dimensions, I18nManager} from 'react-native';
 import SnapCarousel, {
   AdditionalParallaxProps,
   Pagination,
@@ -73,7 +73,7 @@ const Carousel: React.FC<CarouselProps> = ({
             inactiveSlideScale={1}
             showsHorizontalScrollIndicator={true}
             decelerationRate="normal"
-            activeSlideAlignment="start"
+            activeSlideAlignment={I18nManager.isRTL ? 'end' : 'start'}
             enableSnap={enableSnap}
             removeClippedSubviews={false}
           />

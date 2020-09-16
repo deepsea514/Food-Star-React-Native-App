@@ -23,6 +23,10 @@ export default StyleSheet.create({
   titleText: {
     marginTop: 5,
     marginBottom: 5,
+    textAlign: 'left',
+  },
+  subTitle: {
+    textAlign: 'left',
   },
   note: {
     fontSize: 12,

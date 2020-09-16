@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ScrollView, View} from 'react-native';
+import {I18nManager, ScrollView, View} from 'react-native';
 import {
   Section,
   Icon,
@@ -15,6 +15,7 @@ import styles from './styles';
 type SupportCenterPros = {};
 
 const SupportCenter: React.FC<SupportCenterPros> = () => {
+  const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
   return (
     <ScrollView>
       <Container style={styles.contactsupportCenterContainer}>
@@ -39,37 +40,37 @@ const SupportCenter: React.FC<SupportCenterPros> = () => {
       <Section title="Frequently Asked Questions">
         <ListRowItem
           title="My order didn't delivered"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="My orders came with missing items"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="How to change my delivery addresses?"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="How to setup my payment pethods?"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="Where can I change my password?"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="How to request a refund?"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
           title="How can I contact with my drivers"
-          rightIcon={<Icon name="chevron-right" />}
+          rightIcon={<Icon name={chevronIconName} />}
         />
       </Section>
     </ScrollView>
