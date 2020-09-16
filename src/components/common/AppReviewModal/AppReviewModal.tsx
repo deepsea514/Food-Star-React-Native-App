@@ -4,10 +4,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 import dayjs from 'dayjs';
 import {Button, Dialog, Divider, Text} from '@src/components/elements';
 import {getStoreName, getStoreURL} from '@src/utils/store-info';
+import {AppReviewConfig} from '@src/constants';
+
+const {REMIND_LATER_DATE, CANCELED, USES_UNTIL_SHOW} = AppReviewConfig;
 
 type AppReviewModalProps = {
   storeURL?: string;
   daysBeforeReminding?: number;
+  usesUntilShow?: number;
   rateButtonText?: string;
   remindLaterButtonText?: string;
   cancelButtonText?: string;
@@ -16,6 +20,7 @@ type AppReviewModalProps = {
 const AppReviewModal: React.FC<AppReviewModalProps> = ({
   storeURL = getStoreURL(),
   daysBeforeReminding = 1,
+  usesUntilShow = 0,
   rateButtonText = 'Rate Food Star',
   remindLaterButtonText = 'Remind me later',
   cancelButtonText = 'No, thanks',
@@ -25,47 +30,48 @@ const AppReviewModal: React.FC<AppReviewModalProps> = ({
   React.useEffect(() => {
     const handleShowAppReviewModal = async () => {
       try {
-        const appReviewRemindLaterDate = await AsyncStorage.getItem(
-          'appReviewRemindLaterDate',
-        );
-        const appReviewCanceled = await AsyncStorage.getItem(
-          'appReviewCanceled',
-        );
+        const appReviewCanceled = await AsyncStorage.getItem(CANCELED);
+        const appReviewRemindLaterDate =
+          (await AsyncStorage.getItem(REMIND_LATER_DATE)) || '';
+        const usesUntilShowAppReview =
+          (await AsyncStorage.getItem(USES_UNTIL_SHOW)) || '';
 
         if (appReviewCanceled === '1') {
           return;
         }
 
-        if (!appReviewRemindLaterDate) {
-          setIsShowAppReview(true);
+        if (parseInt(usesUntilShowAppReview, 10) < usesUntilShow) {
           return;
         }
 
-        if (dayjs().isAfter(appReviewRemindLaterDate)) {
-          setIsShowAppReview(true);
+        if (dayjs().isBefore(appReviewRemindLaterDate)) {
+          return;
         }
+
+        setIsShowAppReview(true);
       } catch (e) {
         console.log('Failed to fetch the data from storage');
       }
     };
 
     handleShowAppReviewModal();
-  }, []);
+  }, [usesUntilShow]);
 
   const _onCancelButtonPress = () => {
-    AsyncStorage.setItem('appReviewCanceled', '1');
+    AsyncStorage.setItem(CANCELED, '1');
     setIsShowAppReview(false);
   };
 
   const _onRemindLaterButtonPress = () => {
     AsyncStorage.setItem(
-      'appReviewRemindLaterDate',
+      REMIND_LATER_DATE,
       dayjs().add(daysBeforeReminding, 'day').toString(),
     );
     setIsShowAppReview(false);
   };
 
   const _onRateButtonPress = () => {
+    AsyncStorage.setItem(CANCELED, '1');
     setIsShowAppReview(false);
     Linking.openURL(storeURL);
   };
