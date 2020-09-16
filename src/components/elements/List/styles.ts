@@ -30,5 +30,6 @@ export default StyleSheet.create({
   },
   note: {
     fontSize: 12,
+    textAlign: 'left',
   },
 });
