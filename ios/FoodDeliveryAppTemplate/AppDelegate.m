@@ -4,6 +4,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import <React/RCTI18nUtil.h>
 
 #if DEBUG
 #import <FlipperKit/FlipperClient.h>
