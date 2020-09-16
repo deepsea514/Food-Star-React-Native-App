@@ -25,7 +25,8 @@ const Dialog: React.FC<DialogProps> = ({
       useNativeDriver
       animationIn="fadeInUp"
       animationOut="fadeOutDown"
-      backdropTransitionOutTiming={0}>
+      backdropTransitionOutTiming={0}
+      hideModalContentWhileAnimating>
       <Container style={styles.container}>
         {title && (
           <>

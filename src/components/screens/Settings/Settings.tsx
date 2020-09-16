@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {Switch, View, ScrollView, Linking} from 'react-native';
+import {
+  Switch,
+  View,
+  ScrollView,
+  Linking,
+  I18nManager,
+  Alert,
+} from 'react-native';
 import {Text, Icon, Divider, Section} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import styles from './styles';
@@ -12,7 +19,7 @@ type SettingsProps = {};
 
 const Settings: React.FC<SettingsProps> = () => {
   const {theme, useSystemTheme} = React.useContext(themeContext);
-  const [isEnableNotification, setIsEnableNotifications] = React.useState(true);
+  const [enableRTL, setEnableRTL] = React.useState(false);
   const [
     isAppearanceModalVisible,
     setIsAppearanceModalVisible,
@@ -21,6 +28,10 @@ const Settings: React.FC<SettingsProps> = () => {
     false,
   );
 
+  React.useEffect(() => {
+    setEnableRTL(I18nManager.isRTL);
+  }, []);
+
   const _hideAppearanceModal = () => {
     setIsAppearanceModalVisible(false);
   };
@@ -28,6 +39,8 @@ const Settings: React.FC<SettingsProps> = () => {
   const _hideLanguageModal = () => {
     setIsLanguageModalVisible(false);
   };
+
+  const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
 
   const _renderAppSettingsSection = () => {
     return (
@@ -40,17 +53,24 @@ const Settings: React.FC<SettingsProps> = () => {
               <Text style={styles.settingOptionText}>
                 {useSystemTheme ? 'System' : theme.toString()}
               </Text>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
         <Divider />
         <ListRowItem
-          title="Push Notification"
+          title="RTL Layout"
           rightIcon={
             <Switch
-              value={isEnableNotification}
-              onValueChange={(value) => setIsEnableNotifications(value)}
+              value={enableRTL}
+              onValueChange={() => {
+                setEnableRTL(!enableRTL);
+                I18nManager.forceRTL(!enableRTL);
+                Alert.alert(
+                  'Reload this page',
+                  'Please reload this page to change the UI direction! ',
+                );
+              }}
             />
           }
         />
@@ -61,7 +81,7 @@ const Settings: React.FC<SettingsProps> = () => {
           rightIcon={
             <View style={styles.settingOptionContainer}>
               <Text style={styles.settingOptionText}>English</Text>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -77,7 +97,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -87,7 +107,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -97,7 +117,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -107,7 +127,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -117,7 +137,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />
@@ -127,7 +147,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onPress={() => Linking.openURL(getStoreURL())}
           rightIcon={
             <View style={styles.settingOptionContainer}>
-              <Icon name="chevron-right" />
+              <Icon name={chevronIconName} />
             </View>
           }
         />

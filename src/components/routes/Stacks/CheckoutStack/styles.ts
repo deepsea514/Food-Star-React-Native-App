@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {I18nManager, StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   headerLeftContainer: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     paddingRight: 10,
   },
   headerBackIcon: {
-    width: 100,
-    height: 32,
+    width: I18nManager.isRTL ? 'auto' : 100,
+    height: 25,
   },
 });

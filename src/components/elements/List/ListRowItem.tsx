@@ -61,7 +61,11 @@ const ListRowItem: React.FC<ListRowItemProps> = ({
             <Text isBold style={styles.titleText}>
               {title}
             </Text>
-            {subTitle && <Text isSecondary>{subTitle}</Text>}
+            {subTitle && (
+              <Text style={styles.subTitle} isSecondary>
+                {subTitle}
+              </Text>
+            )}
           </View>
           {rightIcon && (
             <View style={[styles.rightItem, rightContainerStyle]}>

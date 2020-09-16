@@ -48,6 +48,7 @@ export default StyleSheet.create({
     paddingTop: 15,
     paddingBottom: 15,
     paddingHorizontal: 10,
+    textAlign: 'left',
   },
   itemContainer: {
     paddingVertical: 20,

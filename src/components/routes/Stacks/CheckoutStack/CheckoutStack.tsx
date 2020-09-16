@@ -11,22 +11,24 @@ import TrackOrder from '@src/components/screens/TrackOrder';
 import {Icon, Button} from '@src/components/elements';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
+import {I18nManager} from 'react-native';
 
 type CheckoutStackProps = {} & ScreenNavigationProps;
 const Stack = createStackNavigator();
 
 const CheckoutStack: React.FC<CheckoutStackProps> = (props) => {
   const {navigation} = props;
+  const chevronIconName = I18nManager.isRTL ? 'chevron-right' : 'chevron-left';
 
   const _renderHeaderLeft = () => {
     return (
       <Button isTransparent onPress={() => navigation.goBack()}>
         <Icon
           style={styles.headerBackIcon}
-          name="ios-arrow-back"
-          size={32}
+          name={chevronIconName}
+          size={25}
+          light
           isPrimary
-          useIonicons
         />
       </Button>
     );

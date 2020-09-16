@@ -6,12 +6,15 @@ import android.os.PersistableBundle;
 import androidx.annotation.Nullable;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.modules.i18nmanager.I18nUtil;
 
 public class MainActivity extends ReactActivity {
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
     setTheme(R.style.AppTheme);
+    I18nUtil sharedI18nUtilInstance = I18nUtil.getInstance();
+    sharedI18nUtilInstance.allowRTL(getApplicationContext(), true);
     super.onCreate(savedInstanceState, persistentState);
   }
 

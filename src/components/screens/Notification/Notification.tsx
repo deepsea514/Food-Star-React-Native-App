@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ScrollView, View} from 'react-native';
+import {I18nManager, ScrollView, View} from 'react-native';
 import {Icon, Divider} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
@@ -9,6 +9,7 @@ import styles from './styles';
 type NotificationScreenProps = {};
 
 const NotificationScreen: React.FC<NotificationScreenProps> = () => {
+  const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
   const {primary} = useThemeColors();
   return (
     <ScrollView>
@@ -25,7 +26,7 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
                   <Icon name="envelope" solid color="white" />
                 </View>
               }
-              rightIcon={<Icon name="chevron-right" />}
+              rightIcon={<Icon name={chevronIconName} />}
               {...item}
             />
             <Divider />

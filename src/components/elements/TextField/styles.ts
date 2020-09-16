@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {I18nManager, StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -12,8 +12,10 @@ export default StyleSheet.create({
     height: 45,
   },
   leftIcon: {
-    padding: 10,
-    paddingRight: 0,
+    paddingLeft: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: I18nManager.isRTL ? 10 : 0,
   },
   textField: {
     flex: 1,

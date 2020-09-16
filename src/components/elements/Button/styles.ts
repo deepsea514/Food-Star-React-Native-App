@@ -13,6 +13,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   iconContainer: {
-    width: 15,
+    // width: 15,
+    marginRight: 5,
   },
 });

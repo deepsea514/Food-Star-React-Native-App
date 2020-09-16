@@ -8,7 +8,8 @@ export default StyleSheet.create({
     padding: 15,
   },
   title: {
-    marginLeft: 15,
-    marginBottom: 15,
+    padding: 15,
+    paddingTop: 0,
+    textAlign: 'left',
   },
 });
