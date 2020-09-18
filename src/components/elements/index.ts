@@ -17,6 +17,7 @@ import List from './List';
 import SearchBar from './SearchBar';
 import Dialog from './Dialog';
 import LoadingIndicator from './LoadingIndicator';
+import DateTimePicker from './DateTimePicker';
 
 export {
   Button,
@@ -38,4 +39,5 @@ export {
   LoadingIndicator,
   TabView,
   TabSectionList,
+  DateTimePicker,
 };
