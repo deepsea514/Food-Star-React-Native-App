@@ -1,15 +1,14 @@
 import * as React from 'react';
 import {View, Image, Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import DateTimePicker, {
-  AndroidEvent,
-} from '@react-native-community/datetimepicker';
+import {AndroidEvent} from '@react-native-community/datetimepicker';
 import {
   Container,
   Text,
   Button,
   Section,
   Divider,
+  DateTimePicker,
 } from '@src/components/elements';
 import styles from './styles';
 
@@ -80,12 +79,7 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
         </View>
       </Container>
       {showDateTimePicker && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode={'datetime'}
-          onChange={onChange}
-        />
+        <DateTimePicker value={date} mode="datetime" onChange={onChange} />
       )}
     </Section>
   );
