@@ -15,6 +15,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
       title: name,
       subTitle: `${totalItems} items | ${totalPrice}`,
       note: date,
+      rightContainerStyle: styles.rightItemContainerStyle,
       rightIcon: (
         <Button isTransparent>
           <Text isBold isPrimary>

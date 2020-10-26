@@ -8,6 +8,7 @@ import SavedAddresses from '@src/components/screens/SavedAddresses';
 import AddAddress from '@src/components/screens/AddAddress';
 import Settings from '@src/components/screens/Settings';
 import SupportCenter from '@src/components/screens/SupportCenter';
+import SelectLocationScreen from '@src/components/screens/SelectLocation';
 import {ScreenNavigationProps} from '../types';
 import styles from './styles';
 
@@ -85,6 +86,13 @@ const AccountStack: React.FC<AccountStackProps> = (props) => {
           headerTitle: 'Support Center',
         }}
         component={SupportCenter}
+      />
+      <Stack.Screen
+        name="SelectLocationScreen"
+        options={{
+          headerTitle: 'Select location',
+        }}
+        component={SelectLocationScreen}
       />
     </Stack.Navigator>
   );
