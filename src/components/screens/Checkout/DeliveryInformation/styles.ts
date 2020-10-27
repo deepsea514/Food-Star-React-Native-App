@@ -26,4 +26,7 @@ export default StyleSheet.create({
   changeTimeContainer: {
     justifyContent: 'center',
   },
+  dateTimePicker: {
+    margin: 10,
+  },
 });
