@@ -85,7 +85,6 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
           value={date}
           mode="datetime"
           onChange={onChange}
-          textColor={primary}
           style={styles.dateTimePicker}
         />
       )}

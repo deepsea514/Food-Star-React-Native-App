@@ -44,6 +44,7 @@ static void InitializeFlipper(UIApplication *application) {
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
+  [self.window setTintColor:[[UIColor alloc] initWithRed:252.0f/255.0f green:106.0f/255.0f blue:87.0f/255.0f alpha:1]];
   [self.window makeKeyAndVisible];
 
   [GMSServices provideAPIKey:@"AIzaSyD7_x-IaDtLZle9C37GEnizuCkEOSnkkBg"]; // add this line using the api key obtained from Google Console
