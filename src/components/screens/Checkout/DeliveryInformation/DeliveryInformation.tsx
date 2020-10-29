@@ -11,13 +11,11 @@ import {
   DateTimePicker,
 } from '@src/components/elements';
 import styles from './styles';
-import useThemeColors from '@src/custom-hooks/useThemeColors';
 
 type DeliveryInformationProps = {};
 
 const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
   const navigation = useNavigation();
-  const {primary} = useThemeColors();
   const [date, setDate] = React.useState(new Date(1598051730000));
   const [showDateTimePicker, setShowDateTimePicker] = React.useState(false);
 
