@@ -12,7 +12,7 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.02,
     shadowRadius: 1.0,
-
+    minHeight: 60,
     elevation: 1,
   },
 });

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {Icon, Text} from '@src/components/elements';
+import {Button, Icon, Text} from '@src/components/elements';
 import Home from '@src/components/screens/Home';
 import PlaceDetails from '@src/components/screens/PlaceDetails';
 import PlaceList from '@src/components/screens/PlaceList';
@@ -47,6 +47,16 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
     );
   };
 
+  const _renderPlaceDetailHeaderRight = () => {
+    return (
+      <Button
+        isTransparent
+        onPress={() => navigation.navigate('SearchDishesModal')}>
+        <Icon name="search" size={18} isPrimary solid />
+      </Button>
+    );
+  };
+
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
@@ -66,6 +76,8 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
         options={() => {
           return {
             headerTitle: 'Neapolitan Pizza',
+            headerRight: _renderPlaceDetailHeaderRight,
+            headerRightContainerStyle: styles.headerRightContainer,
           };
         }}
         name="PlaceDetailsScreen"

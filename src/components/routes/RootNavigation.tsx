@@ -16,6 +16,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import ThemeContext from '@src/context/theme-context';
 import TabNavigation from '@src/components/routes/TabNavigation';
 import DishDetails from '@src/components/screens/DishDetails';
+import SearchDishes from '@src/components/screens/SearchDishes';
 import AuthenticationStack from '@src/components/routes/Stacks/AuthenticationStack';
 import {lightTheme, darkTheme} from '@src/styles/theme';
 import AuthContext from '@src/context/auth-context';
@@ -77,6 +78,29 @@ const RootNavigation = () => {
             }}
             name="DishDetailsModal"
             component={DishDetails}
+          />
+          <RootStack.Screen
+            options={{
+              headerShown: false,
+              cardOverlayEnabled: true,
+              cardStyleInterpolator: ({current: {progress}}) => ({
+                cardStyle: {
+                  opacity: progress.interpolate({
+                    inputRange: [0, 0.5, 0.9, 1],
+                    outputRange: [0, 0.25, 0.7, 1],
+                  }),
+                },
+                overlayStyle: {
+                  opacity: progress.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0, 0.5],
+                    extrapolate: 'clamp',
+                  }),
+                },
+              }),
+            }}
+            name="SearchDishesModal"
+            component={SearchDishes}
           />
         </RootStack.Navigator>
       </View>
