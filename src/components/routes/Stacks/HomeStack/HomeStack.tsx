@@ -47,6 +47,18 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
     );
   };
 
+  const _renderPlaceDetailHeaderRight = () => {
+    return (
+      <Icon
+        name="search"
+        size={18}
+        isPrimary
+        solid
+        onPress={() => navigation.navigate('SearchDishesModal')}
+      />
+    );
+  };
+
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
@@ -66,6 +78,8 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
         options={() => {
           return {
             headerTitle: 'Neapolitan Pizza',
+            headerRight: _renderPlaceDetailHeaderRight,
+            headerRightContainerStyle: styles.headerRightContainer,
           };
         }}
         name="PlaceDetailsScreen"
