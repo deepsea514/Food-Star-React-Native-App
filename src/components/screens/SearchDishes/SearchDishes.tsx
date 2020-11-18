@@ -26,7 +26,7 @@ const SearchDishes: React.FC<SearchDishesProps> = () => {
 
   return (
     <SafeAreaView style={styles.root}>
-      <Container style={styles.contentContainer}>
+      <Container style={styles.searchBarContainer}>
         <View style={styles.closeIconContainer}>
           <Button isTransparent onPress={onCloseButtonClick}>
             <Icon useIonicons name="close" size={20} />

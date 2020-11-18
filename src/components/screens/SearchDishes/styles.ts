@@ -3,7 +3,7 @@ export default StyleSheet.create({
   root: {
     flex: 1,
   },
-  contentContainer: {
+  searchBarContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 10,
