@@ -38,10 +38,10 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
   const _renderExploreHeaderRight = () => {
     return (
       <Icon
-        name="bell"
-        size={18}
+        name="notifications"
+        size={22}
         isPrimary
-        solid
+        useIonicons
         onPress={() => navigation.navigate('Notifications')}
       />
     );
@@ -52,7 +52,7 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
       <Button
         isTransparent
         onPress={() => navigation.navigate('SearchDishesModal')}>
-        <Icon name="search" size={18} isPrimary solid />
+        <Icon name="md-search" size={22} isPrimary useIonicons />
       </Button>
     );
   };
