@@ -23,7 +23,13 @@ const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
         headerStatusBarHeight: insets.top,
         headerStyle: {backgroundColor: background},
       }}>
-      <Stack.Screen name="AuthenticationScreen" component={Authentication} />
+      <Stack.Screen
+        name="AuthenticationScreen"
+        component={Authentication}
+        options={{
+          headerShown: false,
+        }}
+      />
       <Stack.Screen
         name="AuthWithPhoneNumberScreen"
         component={AuthWithPhoneNumber}
