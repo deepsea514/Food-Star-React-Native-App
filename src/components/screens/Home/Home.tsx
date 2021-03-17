@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useFocusEffect} from '@react-navigation/native';
+import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
 import {ScrollView, SafeAreaView, InteractionManager} from 'react-native';
 import {SearchBar, LoadingIndicator} from '@src/components/elements';
 import PopularPlaces from './PopularPlaces';
@@ -17,6 +17,9 @@ const Home: React.FC<HomeProps> = () => {
     isNavigationTransitionFinished,
     setIsNavigationTransitionFinished,
   ] = React.useState(false);
+  const scrollViewRef = React.useRef(null);
+
+  useScrollToTop(scrollViewRef);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -29,7 +32,7 @@ const Home: React.FC<HomeProps> = () => {
 
   return (
     <SafeAreaView>
-      <ScrollView stickyHeaderIndices={[0]}>
+      <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
         <SearchBar placeholder="Find places, dishes, restaurants..." />
         <PopularCategories />
         {isNavigationTransitionFinished ? (

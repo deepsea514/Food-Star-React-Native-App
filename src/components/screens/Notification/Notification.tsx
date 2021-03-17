@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {I18nManager, ScrollView, View} from 'react-native';
+import {useScrollToTop} from '@react-navigation/native';
 import {Icon, Divider} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
@@ -11,8 +12,12 @@ type NotificationScreenProps = {};
 const NotificationScreen: React.FC<NotificationScreenProps> = () => {
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
   const {primary} = useThemeColors();
+  const scrollViewRef = React.useRef(null);
+
+  useScrollToTop(scrollViewRef);
+
   return (
-    <ScrollView>
+    <ScrollView ref={scrollViewRef}>
       {notifications.map((item: Notification) => {
         return (
           <View key={item.id}>

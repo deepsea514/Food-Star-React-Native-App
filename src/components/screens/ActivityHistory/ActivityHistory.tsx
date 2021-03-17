@@ -11,6 +11,7 @@ type ActivityHistoryProps = {};
 
 const ActivityHistory: React.FC<ActivityHistoryProps> = () => {
   const navigation = useNavigation();
+
   const data: ListRowItemProps[] = activityHistoryList.map((item) => {
     const {
       restaurantName,
